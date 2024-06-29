@@ -1,0 +1,8 @@
+{% if messages %}
+<p>Messages:</p>
+<ul>
+    {% for message in messages %}
+    <li><p>{{ message }}</p></li>
+    {% endfor %}
+</ul>
+{% endif %}

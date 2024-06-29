@@ -1,0 +1,17 @@
+<tbody>
+    {% for row in rows %}
+    <tr>
+        {% for column in columns %}
+            <td class="m-0 p-0">
+                <div 
+                    id="square-{{ column }}{{ row }}"
+                    hx-on:click="squareClicked(this)"
+                    class="{{ squares[row][column]['div_css_class'] }} square"
+                    >
+                    <i class="{{ squares[row][column]['icon_css_class'] }}"></i>
+            </div>
+            </td>
+        {% endfor %}
+    </tr>
+    {% endfor %}
+</tbody>

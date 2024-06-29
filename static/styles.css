@@ -1,0 +1,53 @@
+:root {
+    --chess-very-light-color: #d3e6ae;
+    --chess-light-color: #adbd8f;
+    --chess-dark-color: #6f8f72;
+    --chess-text-color: #2e3b2f
+}
+
+table.chessboard {
+    border-collapse: collapse;
+}
+
+table.chessboard td {
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid black; /* Optional: for visual separation of cells */
+}
+
+table.chessboard td div {
+    width: 80px; /* minimum width */
+    height: 80px; /* minimum height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+table.chessboard td i {
+    font-size: 24px; /* Adjust icon size as needed */
+}
+
+div.darksquare {
+    background: var(--chess-dark-color);
+}
+
+div.lightsquare {
+    background: var(--chess-light-color);
+}
+
+div.square:active {
+    background: var(--chess-very-light-color);
+}
+
+button {
+    color: var(--chess-text-color);
+    background: var(--chess-light-color);
+    border: 1px solid var(--chess-dark-color);
+    border-radius: 2px;
+}
+
+button:active {
+    background: var(--chess-dark-color);
+    color: var(--chess-light-color);
+}
+

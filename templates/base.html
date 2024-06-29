@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="static/styles.css">
+        
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-2">
+                    <div
+                        id="message-box"
+                        hx-get="/_messagebox/"
+                        hx-swap="innerHTML"
+                        hx-trigger="load, reload-message-box"
+                        class="row justify-content-start">
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="row justify-content-center">
+                        <table 
+                            hx-get="/_board/"
+                            hx-trigger="load, reload-board"
+                            hx-swap="innerHTML"
+                            hx-on::after-request="startMove()"
+                            id="board"
+                            class="chessboard"
+                        >
+                        </table>
+                    </div>
+                    <div class="row justify-content-center mt-2">
+                        <button
+                            hx-get="/_board/?reset=true"
+                            hx-confirm="Reset the game?"
+                            hx-swap="innerHTML"
+                            hx-target="#board"
+                            hx-on::before-request="resetGame()"
+                            class="m-3 p-3"
+                        ><i class="fa-solid fa-rotate-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="https://unpkg.com/htmx.org@2.0.0" integrity="sha384-wS5l5IKJBvK6sPTKa2WZ1js3d947pvWXbPJ1OmWfEuxLgeHcEbjUUA5i9V5ZkpCw" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/8f61b8d5cd.js" crossorigin="anonymous"></script>
+        <script src="/static/scripts.js"></script>
+    </body>
+</html>
